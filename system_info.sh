@@ -51,7 +51,6 @@ else
 	envtype='WM'
 fi
 
-# echo "$user@$hostname"
 echo "OS: $os"
 echo "Kernel: $kernel"
 echo "CPU: $cpu"
