@@ -12,4 +12,4 @@ alias cd..='cd ../..'
 alias upgrade='pacman -Syu'
 alias install='pacman -S'
 alias grep='grep --color=auto'
-PS1=PS1="\w \\$  "
+PS1="\w \\$  "
