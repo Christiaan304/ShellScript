@@ -9,7 +9,7 @@ alias ls='ls -lh --color=auto'
 alias lsa='ls -lah --color=auto'
 alias cd.='cd ..'
 alias cd..='cd ../..'
-alias upgrade='pacman -Syu'
-alias install='pacman -S'
+alias cd...='cd ../../..'
+alias suspend='systemctl suspend'
 alias grep='grep --color=auto'
-PS1="\w \\$  "
+PS1="\w > "
