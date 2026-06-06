@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# check if cript is run as root
+[ "$EUID" -ne 0 ] && { echo "please run as root" &>2; exit 1; }
+
+install="pacman -S"
+upgrade="pacman -Syu"
+package_installed="pacman -Qi"
+chrootjail_dir="/tmp/chrootjail"
+
+if ! $package_installed arch-install-scripts > /dev/null; then
+    $upgrade
+    $install arch-install-scripts
+    clear
+fi
+
+mkdir -p "$chrootjail_dir"
+pacstrap -K "$chrootjail_dir" base base-devel linux pacman vim nodejs > /dev/null
+clear
+
+sed -i 's/^CheckSpace/#CheckSpace/' "$chrootjail_dir/etc/pacman.conf"
+systemd-nspawn -D "$chrootjail_dir"
